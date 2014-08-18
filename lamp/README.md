@@ -27,6 +27,3 @@ You're all set up. The webserver will now be accessible from http://localhost:88
 * vim
 * htop
 * mc
-
-## TODO
-* NFS hangs on mounting shared folders.
