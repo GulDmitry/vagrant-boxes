@@ -14,12 +14,18 @@ class apache {
   }
 
   # create directory
+  file {"/etc/apache2/conf.d":
+    ensure => directory,
+    require => Package["apache2"],
+  }
+
+  # create directory
   file {"/etc/apache2/sites-enabled":
     ensure => directory,
     recurse => true,
     purge => true,
     force => true,
-    before => File["/etc/apache2/sites-enabled/vagrant_webroot"],
+    before => File["/etc/apache2/sites-enabled/001-vagrant_webroot.conf"],
     require => Package["apache2"],
   }
 
@@ -31,7 +37,7 @@ class apache {
   }
 
   # symlink apache site to the site-enabled directory
-  file { "/etc/apache2/sites-enabled/vagrant_webroot":
+  file { "/etc/apache2/sites-enabled/001-vagrant_webroot.conf":
     ensure => link,
     target => "/etc/apache2/sites-available/vagrant_webroot",
     require => File["/etc/apache2/sites-available/vagrant_webroot"],

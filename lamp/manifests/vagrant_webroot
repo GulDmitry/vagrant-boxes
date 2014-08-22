@@ -4,7 +4,8 @@
   <Directory /vagrant/webroot>
     DirectoryIndex index.php index.html
     AllowOverride All
-    Order allow,deny
-    Allow from all
+    # Order allow,deny #<-- 2.2 config
+    # Allow from all #<-- 2.2 config
+    Require all granted #<-- 2.4 New configuration
   </Directory>
 </VirtualHost>

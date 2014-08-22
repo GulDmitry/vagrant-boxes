@@ -17,6 +17,12 @@ class php {
     require => Exec["apt-get update"]
   }
 
+  # create directory
+  file {"/etc/php5/conf.d":
+    ensure => directory,
+    require => Package["php5"],
+  }
+
   # Update config.
   file {'/etc/php5/conf.d/local.ini':
     path => '/etc/php5/conf.d/local.ini',
