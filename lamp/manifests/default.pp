@@ -9,6 +9,7 @@ include apache
 include php
 include php::pear
 include php::pecl
+include php::xdebug
 include mysql
 include tools::phpmyadmin
 

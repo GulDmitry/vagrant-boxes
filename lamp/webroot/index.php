@@ -1,5 +1,5 @@
 <?php
 
-//va_dump(array(1,2,3));
+var_dump(array('pretty', 'xdebug', 'test'));
 
 echo phpinfo();

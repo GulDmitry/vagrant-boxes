@@ -40,7 +40,7 @@ class php {
   }
 
   # Symlink on overrided php config file.
-  file { "/etc/php5/mods-available/30-local.ini":
+  file { "/etc/php5/apache2/conf.d/30-local.ini":
     ensure => link,
     target => "/etc/php5/mods-available/local.ini",
     require => File["/etc/php5/mods-available/local.ini"],
