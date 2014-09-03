@@ -21,4 +21,32 @@ class mysql {
     command => "mysqladmin -uroot password $mysqlpw",
     require => Service["mysql"],
   }
+
+  # create directory
+  file {"/etc/mysql/conf.d":
+    ensure => directory,
+    require => Package["mysql-server"],
+  }
+
+  # Update config.
+  file {'/etc/mysql/conf.d/local.cnf':
+    path => '/etc/mysql/conf.d/local.cnf',
+    ensure => present,
+    require => Package["mysql-server"],
+    owner => root, group => root, mode => 444,
+    notify => Service["mysql"],
+    content => "
+        [mysqld]
+        # 70-80% RAM
+        innodb_buffer_pool_size=500M
+        innodb_additional_mem_pool_size=50M
+        innodb_thread_concurrency=8
+        innodb_file_io_threads=8
+        innodb_lock_wait_timeout=50
+        innodb_log_buffer_size=8M
+        innodb_flush_log_at_trx_commit=0
+        innodb_additional_mem_pool_size=256M
+    ",
+  }
+
 }
