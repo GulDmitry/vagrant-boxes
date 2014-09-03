@@ -18,14 +18,14 @@ class php {
   }
 
   # create directory
-  file {"/etc/php5/conf.d":
+  file {"/etc/php5/mods-available":
     ensure => directory,
     require => Package["php5"],
   }
 
   # Update config.
-  file {'/etc/php5/conf.d/local.ini':
-    path => '/etc/php5/conf.d/local.ini',
+  file {'/etc/php5/mods-available/local.ini':
+    path => '/etc/php5/mods-available/local.ini',
     ensure => present,
     require => Package["php5"],
     owner => root, group => root, mode => 444,
@@ -37,6 +37,14 @@ class php {
       html_errors = On
       display_errors = On
     ",
+  }
+
+  # Symlink on overrided php config file.
+  file { "/etc/php5/mods-available/30-local.ini":
+    ensure => link,
+    target => "/etc/php5/mods-available/local.ini",
+    require => File["/etc/php5/mods-available/local.ini"],
+    notify => Service["apache2"],
   }
 
 }

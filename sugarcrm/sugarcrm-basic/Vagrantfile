@@ -1,0 +1,28 @@
+Vagrant.configure("2") do |config|
+
+  # config.vm.provision :shell, :path => "scripts/bootstrap-elasticsearch.sh"
+
+  # Enable the Puppet provisioner, with will look in manifests
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = ""
+    puppet.manifest_file = "manifests/default.pp"
+    puppet.module_path = "modules"
+  end
+
+  config.vm.box = "dosbarras/raring32-lamp54"
+
+  config.vm.network "private_network", ip: "192.168.50.12"
+
+  # If mount hangs install nfs-common and nfs-kernel-server, also the command may help: sudo rm -f /etc/exports
+  config.vm.synced_folder "webroot/", "/vagrant/webroot/", nfs: true, nfs_version: "4", nfs_udp: true
+
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :box
+
+    config.cache.synced_folder_opts = {
+      type: :nfs,
+      mount_options: ['rw', 'vers=4', 'udp']
+    }
+  end
+
+end
