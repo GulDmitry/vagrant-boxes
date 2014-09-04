@@ -1,2 +1,2 @@
-vagrant-boxes for SugarCRM
+Vagrant boxed for SugarCRM
 ==========================

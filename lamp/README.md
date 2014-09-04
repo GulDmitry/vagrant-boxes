@@ -9,7 +9,7 @@
 
     $ vagrant up
 
-You're all set up. The webserver will now be accessible from http://localhost:8888
+You're all set up. The webserver will now be accessible from http://localhost:8810 or http://192.168.50.10
 
 ## System Package include
 * apache 2.4 - rewrite mode enabled, having virtual host with config - refer manifest/vagrant_webroot.sample
