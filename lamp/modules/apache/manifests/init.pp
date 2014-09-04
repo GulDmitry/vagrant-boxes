@@ -14,12 +14,6 @@ class apache {
   }
 
   # create directory
-  file {"/etc/apache2/conf.d":
-    ensure => directory,
-    require => Package["apache2"],
-  }
-
-  # create directory
   file {"/etc/apache2/sites-enabled":
     ensure => directory,
     recurse => true,
