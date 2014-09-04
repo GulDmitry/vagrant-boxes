@@ -2,13 +2,13 @@ class tools::phpmyadmin {
 
   package { "phpmyadmin":
     ensure => present,
-    require => Package["php5", "php5-mysql", "apache2"],
+    require => Exec["apt-get update"]
   }
-  
+
   file { "/etc/apache2/conf.d/phpmyadmin.conf":
     ensure => link,
     target => "/etc/phpmyadmin/apache.conf",
-    require => Package["apache2"],
+    require => Package["phpmyadmin"],
     notify => Service["apache2"]
-  }  
+  }
 }

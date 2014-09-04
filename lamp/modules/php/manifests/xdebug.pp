@@ -9,7 +9,7 @@ class php::xdebug {
   file {'/etc/php5/mods-available/xdebug.ini':
     path => '/etc/php5/mods-available/xdebug.ini',
     ensure => present,
-    require => Package["php5"],
+    require => Package["php5", "php5-xdebug"],
     owner => root, group => root, mode => 444,
     content => "
         extension=xdebug.so
@@ -19,14 +19,15 @@ class php::xdebug {
         ; For debug service (SOAP, REST) set cookie on client setCookie('XDEBUG_SESSION', 'netbeans-xdebug')
         ; then debug progect. Some times need restart apache and Netbeans.
 
-        [debug]
         ; Remote settings
         xdebug.remote_autostart=off
         xdebug.remote_enable=on
         xdebug.remote_handler=dbgp
         xdebug.remote_mode=req
-        xdebug.remote_host=localhost
+        xdebug.remote_host=10.0.2.2
         xdebug.remote_port=9000
+        xdebug.remote_connect_back = on
+        xdebug.idekey=PHPSTORM
 
         ; General
         xdebug.show_local_vars=On
@@ -41,7 +42,6 @@ class php::xdebug {
         xdebug.manual_url=http://www.php.net
         xdebug.show_mem_delta=1
         xdebug.max_nesting_level=100
-        xdebug.idekey=netbeans-xdebug
 
         ;var_dump
         ;Default value: 128
@@ -50,7 +50,6 @@ class php::xdebug {
         xdebug.var_display_max_data=640
         ;Default value: 3
         xdebug.var_display_max_depth=6
-
 
         ; Trace options
         ;xdebug.trace_format=0

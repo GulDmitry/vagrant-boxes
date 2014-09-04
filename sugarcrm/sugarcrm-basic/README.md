@@ -1,7 +1,8 @@
 ## Basic box for SugarCRM
 
 ## Requirements
-* Apache
+* Apache 2.2
 * PHP 5.4
-* MySQL 5.x
+* xDebug
+* MySQL 5.5
 * ElasticSearch 0.9.x
