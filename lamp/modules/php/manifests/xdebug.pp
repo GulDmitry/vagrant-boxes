@@ -12,7 +12,7 @@ class php::xdebug {
     require => Package["php5", "php5-xdebug"],
     owner => root, group => root, mode => 444,
     content => "
-        extension=xdebug.so
+        zend_extension=xdebug.so
 
         ; For debug in CLI run before script 'export XDEBUG_CONFIG='idekey=netbeans-xdebug''.
         ; PHP Storm IDE key is PHPSTORM
