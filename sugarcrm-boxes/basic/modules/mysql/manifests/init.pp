@@ -29,14 +29,14 @@ class mysql {
     content => "
         [mysqld]
         # 70-80% RAM
-        innodb_buffer_pool_size=500M
-        innodb_additional_mem_pool_size=50M
+        innodb_buffer_pool_size=1000M
+        innodb_additional_mem_pool_size=70M
         innodb_thread_concurrency=8
         innodb_file_io_threads=8
         innodb_lock_wait_timeout=50
         innodb_log_buffer_size=8M
         innodb_flush_log_at_trx_commit=0
-        innodb_additional_mem_pool_size=256M
+        innodb_additional_mem_pool_size=300M
     ",
   }
 
