@@ -37,6 +37,8 @@ class mysql {
         innodb_log_buffer_size=8M
         innodb_flush_log_at_trx_commit=0
         innodb_additional_mem_pool_size=300M
+        # Skip reverse DNS lookup of clients
+        skip-name-resolve
     ",
   }
 

@@ -31,9 +31,9 @@ class php {
     require => Package["php5"],
     owner => root, group => root, mode => 444,
     content => "
-      post_max_size = 16M
-      upload_max_filesize = 16M
-      memory_limit = 512M
+      post_max_size = 60M
+      upload_max_filesize = 60M
+      memory_limit = 800M
       error_reporting = E_ALL
       html_errors = On
       display_errors = On
