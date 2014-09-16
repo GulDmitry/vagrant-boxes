@@ -14,13 +14,8 @@ You're all set up. The webserver will now be accessible from http://localhost:88
 ## System Package include
 * apache 2.4 - rewrite mode enabled, having virtual host with config - refer manifest/vagrant_webroot.sample
 * php5 5.5.x
-* php5-cli
 * php5-mysql
-* php-pear - installed packages: phpunit and its dependencies
-* php5-dev
-* php5-gd
-* php5-mcrypt
-* libapache2-mod-php5
+* phpunit
 * mysql-server
 * xdebug
 * phpmyadmin

@@ -37,6 +37,7 @@ class php {
       error_reporting = E_ALL
       html_errors = On
       display_errors = On
+      date.timezone = Europe/Minsk
     ",
   }
 
