@@ -1,5 +1,7 @@
 # LAMP Stacks Made Easy with Vagrant & Puppet
 
+All packages installed and configured manually without using puppet modules.
+
 ## Box
 * Ubuntu 14.04
 * Puppet 3.6
