@@ -1,0 +1,38 @@
+server {
+
+    listen 80;
+    server_name localhost;
+    access_log   /var/log/nginx/localhost.access.log;
+    error_log    /var/log/nginx/localhost.error.log error;
+
+    index index.php index.html index.htm;
+    set $root_path '/vagrant/webroot';
+    root $root_path;
+
+    try_files $uri $uri/ @rewrite;
+
+    location @rewrite {
+        rewrite ^/(.*)$ /index.php?_url=/$1;
+    }
+
+    location ~ \.php {
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_index /index.php;
+
+        include /etc/nginx/fastcgi_params;
+
+        fastcgi_split_path_info       ^(.+\.php)(/.+)$;
+        fastcgi_param DOCUMENT_ROOT /vagrant/webroot;
+        # change to / if php.ini contains chroot = /vagrant/webroot
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    location ~* ^/(css|img|js|flv|swf|download)/(.+)$ {
+        root $root_path;
+    }
+
+    ## Disable viewing .htaccess & .htpassword
+    location ~ /\.ht {
+        deny  all;
+    }
+}
