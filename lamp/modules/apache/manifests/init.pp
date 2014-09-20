@@ -26,7 +26,7 @@ class apache {
   # create apache config from main vagrant manifests
   file { "/etc/apache2/sites-available/vagrant_webroot":
     ensure => present,
-    source => "/vagrant/manifests/vagrant_webroot",
+    source => "/vagrant/config/vagrant_webroot",
     require => Package["apache2"],
   }
 

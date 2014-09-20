@@ -2,9 +2,9 @@ Vagrant::configure("2") do |config|
 	# config.vm.hostname = "simple-vagrant.localhost"
 
 	config.vm.provision :puppet do |puppet|
-		puppet.manifests_path = "private/puppet/manifests"
+		puppet.manifests_path = "manifests"
 		puppet.manifest_file  = "base.pp"
-		puppet.module_path = "private/puppet/modules"
+		puppet.module_path = "modules"
 	end
 
     # Every Vagrant virtual environment requires a box to build off of.

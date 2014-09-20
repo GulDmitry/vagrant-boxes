@@ -9,7 +9,7 @@ class php {
 		ensure => file,
 		owner => root,
 		group => root,
-		source => '/vagrant/private/config/php/php.ini',
+		source => '/vagrant/config/php/php.ini',
 		require => Package['php5-fpm'],
 		notify => Service['php5-fpm'],
 	}
@@ -19,7 +19,7 @@ class php {
 		ensure => file,
 		owner => root,
 		group => root,
-		source => '/vagrant/private/config/php/www.conf',
+		source => '/vagrant/config/php/www.conf',
 		require => Package['php5-fpm'],
 		notify => Service['php5-fpm'],
 	}
