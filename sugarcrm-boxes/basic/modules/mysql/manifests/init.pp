@@ -1,31 +1,31 @@
 class mysql {
 
-  # root mysql password
+# root mysql password
   $mysqlpw = "root"
 
-  #start mysql service
+#start mysql service
   service { "mysql":
     ensure => running,
   }
 
-  # set mysql password
+# set mysql password
   exec { "set-mysql-password":
-    unless => "mysqladmin -uroot -p$mysqlpw status",
+    unless  => "mysqladmin -uroot -p$mysqlpw status",
     command => "mysqladmin -uroot password $mysqlpw",
     require => Service["mysql"],
   }
 
-  # create directory
-  file {"/etc/mysql/conf.d":
+# create directory
+  file { "/etc/mysql/conf.d":
     ensure => directory,
   }
 
-  # Update config.
-  file {'/etc/mysql/conf.d/local.cnf':
-    path => '/etc/mysql/conf.d/local.cnf',
-    ensure => present,
-    owner => root, group => root, mode => 444,
-    notify => Service["mysql"],
+# Update config.
+  file { '/etc/mysql/conf.d/local.cnf':
+    path    => '/etc/mysql/conf.d/local.cnf',
+    ensure  => present,
+    owner   => root, group => root, mode => 444,
+    notify  => Service["mysql"],
     content => "
         [mysqld]
         innodb_buffer_pool_size=1000M
@@ -41,7 +41,7 @@ class mysql {
     ",
   }
 
-  # Create a database.
+# Create a database.
   exec { "create sugarcrm db":
     command =>
       "/usr/bin/mysql -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS sugarcrm CHARACTER SET utf8 COLLATE utf8_general_ci;\"",

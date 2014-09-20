@@ -1,6 +1,6 @@
 class tools {
 
-  # package install list
+# package install list
   $packages = [
     "curl",
     "vim",
@@ -8,9 +8,9 @@ class tools {
     "mc"
   ]
 
-  # install packages
+# install packages
   package { $packages:
-    ensure => present,
+    ensure  => present,
     require => Exec["apt-get update"]
   }
 }

@@ -1,16 +1,16 @@
 class php::xdebug {
 
   package { "php5-xdebug":
-    ensure => present,
+    ensure  => present,
     require => Package["php5"],
   }
-  
-  # Update config.
-  file {'/etc/php5/mods-available/xdebug.ini':
-    path => '/etc/php5/mods-available/xdebug.ini',
-    ensure => present,
+
+# Update config.
+  file { '/etc/php5/mods-available/xdebug.ini':
+    path    => '/etc/php5/mods-available/xdebug.ini',
+    ensure  => present,
     require => Package["php5", "php5-xdebug"],
-    owner => root, group => root, mode => 444,
+    owner   => root, group => root, mode => 444,
     content => "
         zend_extension=xdebug.so
 
@@ -66,11 +66,11 @@ class php::xdebug {
     ",
   }
 
-  # Symlink on overrided php config file.
+# Symlink on overrided php config file.
   file { "/etc/php5/apache2/conf.d/20-xdebug.ini":
-    ensure => link,
-    target => "/etc/php5/mods-available/xdebug.ini",
+    ensure  => link,
+    target  => "/etc/php5/mods-available/xdebug.ini",
     require => File["/etc/php5/mods-available/xdebug.ini"],
-    notify => Service["apache2"],
+    notify  => Service["apache2"],
   }
 }

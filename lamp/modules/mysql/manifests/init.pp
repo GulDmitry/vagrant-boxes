@@ -1,40 +1,40 @@
 class mysql {
 
-  # root mysql password
+# root mysql password
   $mysqlpw = "root"
 
-  # install mysql server
+# install mysql server
   package { "mysql-server":
-    ensure => present,
+    ensure  => present,
     require => Exec["apt-get update"]
   }
 
-  #start mysql service
+#start mysql service
   service { "mysql":
-    ensure => running,
+    ensure  => running,
     require => Package["mysql-server"],
   }
 
-  # set mysql password
+# set mysql password
   exec { "set-mysql-password":
-    unless => "mysqladmin -uroot -p$mysqlpw status",
+    unless  => "mysqladmin -uroot -p$mysqlpw status",
     command => "mysqladmin -uroot password $mysqlpw",
     require => Service["mysql"],
   }
 
-  # create directory
-  file {"/etc/mysql/conf.d":
-    ensure => directory,
+# create directory
+  file { "/etc/mysql/conf.d":
+    ensure  => directory,
     require => Package["mysql-server"],
   }
 
-  # Update config.
-  file {'/etc/mysql/conf.d/local.cnf':
-    path => '/etc/mysql/conf.d/local.cnf',
-    ensure => present,
+# Update config.
+  file { '/etc/mysql/conf.d/local.cnf':
+    path    => '/etc/mysql/conf.d/local.cnf',
+    ensure  => present,
     require => Package["mysql-server"],
-    owner => root, group => root, mode => 444,
-    notify => Service["mysql"],
+    owner   => root, group => root, mode => 444,
+    notify  => Service["mysql"],
     content => "
         [mysqld]
         # 70-80% RAM

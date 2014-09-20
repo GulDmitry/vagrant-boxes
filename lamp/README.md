@@ -1,17 +1,9 @@
-# LAMP Stacks Made Easy with Vagrant & Puppet
+# LAMP Stacks
 
 All packages installed and configured manually without using puppet modules.
 
 ## Box
 * Ubuntu 14.04
-* Puppet 3.6
-
-## Instructions
-1. Open up terminal, change directory to the git repo root, and start the vagrant box.
-
-    $ vagrant up
-
-You're all set up. The webserver will now be accessible from http://localhost:8810 or http://192.168.50.10
 
 ## System Package include
 * apache 2.4

@@ -1,6 +1,6 @@
 class php {
 
-  # package install list
+# package install list
   $packages = [
     "php5-cli",
     "php5-mysql",
@@ -13,20 +13,20 @@ class php {
   ]
 
   package { $packages:
-    ensure => present,
+    ensure  => present,
     require => Exec["apt-get update"]
   }
 
-  # create directory
-  file {"/etc/php5/mods-available":
+# create directory
+  file { "/etc/php5/mods-available":
     ensure => directory,
   }
 
-  # Update config.
-  file {'/etc/php5/mods-available/local.ini':
-    path => '/etc/php5/mods-available/local.ini',
-    ensure => present,
-    owner => root, group => root, mode => 444,
+# Update config.
+  file { '/etc/php5/mods-available/local.ini':
+    path    => '/etc/php5/mods-available/local.ini',
+    ensure  => present,
+    owner   => root, group => root, mode => 444,
     content => "
       post_max_size = 80M
       upload_max_filesize = 80M
@@ -37,12 +37,12 @@ class php {
     ",
   }
 
-  # Symlink on overrided php config file.
+# Symlink on overrided php config file.
   file { "/etc/php5/apache2/conf.d/30-local.ini":
-    ensure => link,
-    target => "/etc/php5/mods-available/local.ini",
+    ensure  => link,
+    target  => "/etc/php5/mods-available/local.ini",
     require => File["/etc/php5/mods-available/local.ini"],
-    notify => Service["apache2"],
+    notify  => Service["apache2"],
   }
 
 }
