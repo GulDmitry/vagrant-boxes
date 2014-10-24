@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "webroot", "/vagrant/webroot", nfs: true, nfs_udp: true
 
   if Vagrant.has_plugin?("vagrant-cachier")
-    # Configure cached packages to be shared between instances of the same base box.
+    # Configure cached packages to be shared between instances of the same base box (:box).
     # More info on http://fgrehm.viewdocs.io/vagrant-cachier/usage
     # Or :machine to save in .vagrant/machines/<machine-name>/cache
     config.cache.scope = :machine

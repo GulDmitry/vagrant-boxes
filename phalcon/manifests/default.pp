@@ -9,4 +9,5 @@ include php
 include php::pear
 include php::pecl
 include php::xdebug
-include phalcon
+include phalcon::install
+include phalcon::configure

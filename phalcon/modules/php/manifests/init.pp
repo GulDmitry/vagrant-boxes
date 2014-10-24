@@ -1,5 +1,7 @@
 class php {
-  package { ['php5-common', 'php5-gd', 'php5-mcrypt', 'php5-mysql', 'php5-cli', 'php5-curl', 'php5-fpm', 'php-pear' ]:
+  package { [
+    'php5-common', 'php5-gd', 'php5-mcrypt', 'php5-mysql', 'php5-cli', 'php5-curl', 'php5-fpm', 'php-pear', 'php5-dev'
+  ]:
     require => Exec['apt-get update'],
     ensure  => latest,
   }
@@ -33,6 +35,7 @@ class php {
       error_reporting = E_ALL
       html_errors = On
       display_errors = On
+      display_startup_errors = On
       date.timezone = Europe/Minsk
     ",
   }
