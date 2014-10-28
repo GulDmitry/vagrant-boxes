@@ -11,7 +11,7 @@ class php {
     ensure  => file,
     owner   => root,
     group   => root,
-    source  => '/vagrant/config/php/www.conf',
+    source  => 'puppet:///modules/php/www.conf',
     require => Package['php5-fpm'],
     notify  => Service['php5-fpm'],
   }

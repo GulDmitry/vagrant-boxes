@@ -1,17 +1,17 @@
 #!/bin/bash
 
-if [ $(php -r 'echo extension_loaded("pcntl") ? "1" : "0";') == "0" ]
+if [ $(php -r 'echo extension_loaded("phalcon") ? "1" : "0";') == "0" ]
 then
+
+    # Phalcon
     cd /home/vagrant
-    # git clone git://github.com/phalcon/cphalcon.git
-    git clone -b master --single-branch git://github.com/phalcon/cphalcon.git
-    cd cphalcon/build/
+    unzip /tmp/cphalcon-master.zip
+    cd cphalcon-master/build/
     sudo ./install
 
-    # phalcon developer tools
+    # Phalcon developer tools
     cd /home/vagrant
-    # git clone git://github.com/phalcon/phalcon-devtools.git
-    git clone -b master --single-branch git://github.com/phalcon/phalcon-devtools.git
-    cd phalcon-devtools
+    unzip /tmp/phalcon-devtools-master.zip
+    cd phalcon-devtools-master/
     sudo ./phalcon.sh
 fi

@@ -1,12 +1,31 @@
 class phalcon::install {
-  package { ['git-core', 'gcc', 'autoconf', 'libpcre3-dev']:
+  package { ['git-core', 'gcc', 'autoconf', 'libpcre3-dev', 'unzip']:
     require => Exec['apt-get update'],
     ensure  => latest,
+  }
+
+  file { '/tmp/cphalcon-master.zip':
+    ensure  => file,
+    source  => 'puppet:///modules/phalcon/cphalcon-master.zip',
+    group   => vagrant,
+    owner   => vagrant,
+    mode    => 777,
+    require => Package['unzip'],
+  }
+
+  file { '/tmp/phalcon-devtools-master.zip':
+    ensure  => file,
+    source  => 'puppet:///modules/phalcon/phalcon-devtools-master.zip',
+    group   => vagrant,
+    owner   => vagrant,
+    mode    => 777,
+    require => Package['unzip'],
   }
 
   file { '/tmp/install-phalcon.sh':
     ensure  => file,
     source  => 'puppet:///modules/phalcon/install-phalcon.sh',
+#    source  => 'puppet:///modules/phalcon/install-latest-phalcon.sh',
     group   => vagrant,
     owner   => vagrant,
     mode    => 777,
@@ -19,7 +38,8 @@ class phalcon::install {
 
   exec { 'install-phalcon-sh':
     command  => '/tmp/install-phalcon.sh',
-    require  => File['/tmp/install-phalcon.sh'],
+    require  => File['/tmp/install-phalcon.sh', '/tmp/phalcon-devtools-master.zip', '/tmp/cphalcon-master.zip'],
+  #    require  => File['/tmp/install-phalcon.sh'],
     provider => 'shell',
     unless   => '/bin/ls -a /usr/lib/php5/* | /bin/grep -c phalcon.so',
   }

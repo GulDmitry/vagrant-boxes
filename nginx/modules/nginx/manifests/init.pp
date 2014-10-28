@@ -6,7 +6,7 @@ class nginx {
 
   file { '/etc/nginx/nginx.conf':
     require => Package['nginx'],
-    source  => '/vagrant/config/nginx/nginx.conf'
+    source  => 'puppet:///modules/nginx/nginx.conf'
   }
 
   file { 'nginx/sites-available':
@@ -16,7 +16,7 @@ class nginx {
     group   => root,
     purge   => true,
     recurse => true,
-    source  => "/vagrant/config/nginx/sites-available",
+    source  => "puppet:///modules/nginx/sites-available",
     require => Package['nginx'],
   }
 

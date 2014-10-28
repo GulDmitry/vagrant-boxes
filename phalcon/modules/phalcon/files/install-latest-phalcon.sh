@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(php -r 'echo extension_loaded("pcntl") ? "1" : "0";') == "0" ]
+if [ $(php -r 'echo extension_loaded("phalcon") ? "1" : "0";') == "0" ]
 then
     cd /home/vagrant
     # git clone git://github.com/phalcon/cphalcon.git
@@ -12,6 +12,6 @@ then
     cd /home/vagrant
     # git clone git://github.com/phalcon/phalcon-devtools.git
     git clone -b master --single-branch git://github.com/phalcon/phalcon-devtools.git
-    cd phalcon-devtools
+    cd phalcon-devtools/
     sudo ./phalcon.sh
 fi
