@@ -12,4 +12,6 @@ include php::pecl
 include php::xdebug
 include mysql
 include tools::phpmyadmin
+include elasticsearch::install
+include elasticsearch::configure
 

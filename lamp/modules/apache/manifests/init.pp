@@ -3,14 +3,14 @@ class apache {
 # install apache
   package { "apache2":
     ensure  => present,
-    require => Exec["apt-get update"]
+    require => Exec["apt-get update"],
   }
 
 # ensures that mode_rewrite is loaded and modifies the default configuration file
   file { "/etc/apache2/mods-enabled/rewrite.load":
     ensure  => link,
     target  => "/etc/apache2/mods-available/rewrite.load",
-    require => Package["apache2"]
+    require => Package["apache2"],
   }
 
 # create directory
@@ -44,7 +44,7 @@ class apache {
     require   => Package["apache2"],
     subscribe => [
       File["/etc/apache2/mods-enabled/rewrite.load"],
-      File["/etc/apache2/sites-available/webroot"]
+      File["/etc/apache2/sites-available/webroot"],
     ],
   }
 }

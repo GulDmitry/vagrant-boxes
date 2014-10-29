@@ -7,7 +7,8 @@ Vagrant.configure("2") do |config|
     puppet.module_path = "modules"
   end
 
-  config.vm.provision :shell, :path => "scripts/bootstrap-elasticsearch.sh"
+  # Moved to module.
+  # config.vm.provision :shell, :path => "scripts/bootstrap-elasticsearch.sh"
 
   config.vm.box = "dosbarras/raring32-lamp54"
 

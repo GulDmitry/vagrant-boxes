@@ -7,7 +7,7 @@ class bootstrap {
 
 # Replace archive repositories to old-release
   exec { 'repair archive repos':
-    command => 'sed -i -e "s/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g" /etc/apt/sources.list'
+    command => 'sudo sed -i -e "s/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g" /etc/apt/sources.list'
   }
 
 # ensure local apt cache index is up to date before beginning
