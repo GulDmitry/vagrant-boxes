@@ -28,8 +28,8 @@ class mysql {
     notify  => Service["mysql"],
     content => "
         [mysqld]
-        innodb_buffer_pool_size=1000M
-        innodb_additional_mem_pool_size=70M
+        innodb_buffer_pool_size=1500M
+        innodb_additional_mem_pool_size=80M
         innodb_thread_concurrency=8
         innodb_file_io_threads=8
         innodb_lock_wait_timeout=50

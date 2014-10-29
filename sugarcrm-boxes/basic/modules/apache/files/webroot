@@ -1,7 +1,7 @@
 <VirtualHost *:80>
   ServerName app.local
-  DocumentRoot /vagrant/webroot/sugarcrm
-  <Directory /vagrant/webroot/sugarcrm>
+  DocumentRoot /vagrant/webroot/ult/sugarcrm
+  <Directory /vagrant/webroot/ult/sugarcrm>
     DirectoryIndex index.php index.html
     AllowOverride All
 
