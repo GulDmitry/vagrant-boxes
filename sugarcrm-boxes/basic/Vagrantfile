@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
 
   # Do not forget to run "vagrant rsync-auto"
   config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__auto: true,
-   rsync__exclude: ["webroot/ult/.git/", "webroot/ult/sugarcrm/cache/", "webroot/ult/sugarcrm/upload/"]
+   rsync__exclude: ["webroot/ult/.git/", "webroot/ult/sugarcrm/cache/*", "webroot/ult/sugarcrm/upload/*"]
 
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :machine
