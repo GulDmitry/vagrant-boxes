@@ -1,5 +1,8 @@
 ## Basic box for SugarCRM
 
+## Box
+* Ubuntu 13.04 32.
+
 ## Requirements
 * Apache 2.2
 * PHP 5.4
