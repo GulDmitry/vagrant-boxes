@@ -1,6 +1,4 @@
-# LAMP Stacks
-
-All packages installed and configured manually without using puppet modules.
+# LAMP Stack
 
 ## Box
 * Ubuntu 14.04
@@ -8,7 +6,7 @@ All packages installed and configured manually without using puppet modules.
 * Apache 2.4
 * PHP 5.x
   * Xdebug
-  * Phpunit
+  * PHPUnit
 * Mysql
 * PHPMyAdmin
 * Memcached (disabled)
