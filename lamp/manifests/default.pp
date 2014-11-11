@@ -1,6 +1,6 @@
 # default path
 Exec {
-  path => ["/usr/bin", "/bin", "/usr/sbin", "/sbin", "/usr/local/bin", "/usr/local/sbin"]
+  path => ['/usr/bin', '/bin', '/usr/sbin', '/sbin', '/usr/local/bin', '/usr/local/sbin']
 }
 
 include bootstrap
@@ -12,4 +12,4 @@ include php::pecl
 include php::xdebug
 include mysql
 include tools::phpmyadmin
-
+#include memcached
