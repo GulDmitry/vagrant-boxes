@@ -26,6 +26,8 @@
 $sugar_config['sugar_queue']['manager'] = 'standard';
 //$sugar_config['sugar_queue']['manager'] = 'parallel';
 
+//$sugar_config['sugar_queue']['mode']['od'] = true;
+
 // Sugar
 $sugar_config['sugar_queue']['queue'] = 'sugar';
 
