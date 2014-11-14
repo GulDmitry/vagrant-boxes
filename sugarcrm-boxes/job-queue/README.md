@@ -28,6 +28,9 @@ $sugar_config['sugar_queue']['manager'] = 'standard';
 
 //$sugar_config['sugar_queue']['mode']['od'] = true;
 
+// Enable to log job results via file cache.
+$sugar_config['external_cache_enabled_file'] = true;
+
 // Sugar
 $sugar_config['sugar_queue']['queue'] = 'sugar';
 
