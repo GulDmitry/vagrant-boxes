@@ -13,7 +13,7 @@
 * ElasticSearch 0.9.x
 
 ## Tips
-* Mysq user `root` pswd `root` db `sugarcrm` 
+* Mysql user `root` pswd `root` db `sugarcrm` 
 
 ## TODO
 * Waiting until RSYNC become two-way. The "vagrant-rsync-back" can be used to sync from guest to host but

@@ -16,7 +16,7 @@
 * RabbitMQ 3.4.1 (php-amqp ext 1.4.0)
 
 ## Tips
-* Mysq user `root` pswd `root` db `sugarcrm` 
+* Mysql user `root` pswd `root` db `sugarcrm` 
 * Gearman service `sudo service gearman-job-server`
 * Rabbit service `sudo service rabbitmq-server`
 * Rebbit management plubin `http://server-name:15672`, a new admin user `admin - admin`
