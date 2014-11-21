@@ -50,5 +50,9 @@ $sugar_config['sugar_queue']['queue'] = 'sugar';
 //$sugar_config['sugar_queue']['secret'] = '{secret}';
 //$sugar_config['sugar_queue']['region'] = 'eu-west-1';
 //$sugar_config['sugar_queue']['queueName'] = 'sugarjobqueue_dev';
+
+// Queue executes tasks on add.
+//$sugar_config['sugar_queue']['queue'] = 'immediate';
+
 ```
 * Check the pcntl ext `php -r 'echo extension_loaded("pcntl") ? "yes\n" : "no\n";'`
