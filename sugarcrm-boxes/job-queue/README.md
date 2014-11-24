@@ -17,7 +17,11 @@
 
 ## Tips
 * Mysql user `root` pswd `root` db `sugarcrm` 
-* Gearman service `sudo service gearman-job-server`
+* Gearman
+ * `sudo service gearman-job-server`
+ * (echo workers ; sleep 0.1) | netcat 127.0.0.1 4730
+ * (echo status ; sleep 0.1) | netcat 127.0.0.1 4730
+ * gearmand --queue-type=MySQL  --mysql-host=127.0.0.1 --mysql-user=root --mysql-password=root --mysql-db=sugarcrm --mysql-port=3306
 * Rabbit service `sudo service rabbitmq-server`
 * Rebbit management plubin `http://server-name:15672`, a new admin user `admin - admin`
 * Clean rabbit queue `sudo rabbitmqctl stop_app; sudo rabbitmqctl reset; sudo rabbitmqctl start_app`
