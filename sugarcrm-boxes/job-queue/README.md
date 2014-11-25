@@ -30,10 +30,8 @@
 $sugar_config['sugar_queue']['manager'] = 'standard';
 //$sugar_config['sugar_queue']['manager'] = 'parallel';
 
+// Lock isn't used.
 //$sugar_config['sugar_queue']['mode']['od'] = true;
-
-// Enable to log job results via file cache.
-$sugar_config['external_cache_enabled_file'] = true;
 
 // Sugar
 $sugar_config['sugar_queue']['queue'] = 'sugar';
@@ -57,6 +55,9 @@ $sugar_config['sugar_queue']['queue'] = 'sugar';
 
 // Queue executes tasks on add.
 //$sugar_config['sugar_queue']['queue'] = 'immediate';
+
+// Otherwise Sugar selects enabled backend according to priority.
+//$sugar_config['sugar_queue']['logger'] = 'ClassName';
 
 ```
 * Check the pcntl ext `php -r 'echo extension_loaded("pcntl") ? "yes\n" : "no\n";'`
