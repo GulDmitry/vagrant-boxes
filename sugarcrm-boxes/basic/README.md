@@ -7,7 +7,6 @@
 * Apache 2.2
 * PHP 5.4
   * xDebug
-  * PHPUnit
 * MySQL 5.5
 * PHPMyAdmin
 * ElasticSearch 0.9.x
