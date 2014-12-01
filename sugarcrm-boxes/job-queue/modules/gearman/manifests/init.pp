@@ -11,6 +11,12 @@ class gearman {
     require => Exec['add-gearman-ppa']
   }
 
+  service { 'gearman-job-server':
+    ensure  => running,
+    enable  => true,
+    require => Package['gearman-job-server'],
+  }
+
   exec { 'add-gearman-ppa':
     command => 'add-apt-repository ppa:gearman-developers/ppa',
     notify  => Exec['apt-get update'],
@@ -37,4 +43,17 @@ class gearman {
     require => File['/etc/php5/mods-available/gearman.ini'],
     notify  => Service['apache2'],
   }
+
+# Allow gearman to use remote connections.
+  file { '/etc/default/gearman-job-server':
+    path    => '/etc/default/gearman-job-server',
+    ensure  => present,
+    require => Package['gearman-job-server'],
+    content => '
+        # PARAMS="--listen=127.0.0.1"
+        PARAMS=""
+    ',
+    notify  => Service['gearman-job-server'],
+  }
+
 }

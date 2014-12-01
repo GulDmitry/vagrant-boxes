@@ -18,6 +18,7 @@
 ## Tips
 * Mysql user `root` pswd `root` db `sugarcrm` 
 * Gearman
+ * To connect use private IP from Vagrantfile.
  * `sudo service gearman-job-server`
  * (echo workers ; sleep 0.1) | netcat 127.0.0.1 4730
  * (echo status ; sleep 0.1) | netcat 127.0.0.1 4730
