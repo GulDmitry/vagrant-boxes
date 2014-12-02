@@ -23,8 +23,8 @@
  * (echo status ; sleep 0.1) | netcat 127.0.0.1 4730
  * gearmand --queue-type=MySQL  --mysql-host=127.0.0.1 --mysql-user=root --mysql-password=root --mysql-db=sugarcrm --mysql-port=3306
 * Rabbit service `sudo service rabbitmq-server`
-* Rebbit management plubin `http://server-name:15672`, a new admin user `admin - admin`
-* Clean rabbit queue `sudo rabbitmqctl stop_app; sudo rabbitmqctl reset; sudo rabbitmqctl start_app`
+* Rabbit management plugin `http://server-name:15672`, a new admin user `admin - admin`
+* Clear rabbit queue `sudo rabbitmqctl stop_app; sudo rabbitmqctl reset; sudo rabbitmqctl start_app`
 * Sugar config:
 ```
 $sugar_config['sugar_queue']['manager'] = 'standard';
