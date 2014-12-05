@@ -6,5 +6,4 @@
 * NGINX
 * PHP 5.x
   * Xdebug
-  * Phpunit
 * Mysql

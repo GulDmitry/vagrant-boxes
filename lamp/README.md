@@ -6,7 +6,6 @@
 * Apache 2.4
 * PHP 5.x
   * Xdebug
-  * PHPUnit
 * Mysql
 * PHPMyAdmin
 * Memcached (disabled)

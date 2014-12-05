@@ -6,7 +6,6 @@
 * NGINX
 * PHP 5.x
   * Xdebug
-  * Phpunit
 * Mysql
 * Phalcon 1.3.3
 * PHPMyAdmin
