@@ -34,6 +34,7 @@ class php {
       error_reporting = E_ALL & ~E_STRICT & ~E_DEPRECATED
       html_errors = On
       display_errors = On
+      max_execution_time = 300
     ',
   }
 
