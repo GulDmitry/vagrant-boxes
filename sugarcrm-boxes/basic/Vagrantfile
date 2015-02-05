@@ -25,7 +25,9 @@ Vagrant.configure("2") do |config|
 
   # NFS is too slow for SugarCRM. Use RSYNC instead.
   # If mount hangs install nfs-common and nfs-kernel-server, also the command may help: sudo rm -f /etc/exports
-  config.vm.synced_folder ".", "/vagrant", nfs: true, nfs_version: "4", nfs_udp: true
+  config.vm.synced_folder ".", "/vagrant", nfs: true, nfs_version: "4", nfs_udp: true,  mount_options: ['rw', 'vers=4', 'tcp', 'fsc']
+  config.nfs.map_uid = Process.uid
+  config.nfs.map_gid = Process.gid
 
   # Do not forget to run "vagrant rsync-auto". Currently (v1.6) rsync is one-way!
   # config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__auto: true,
@@ -36,7 +38,9 @@ Vagrant.configure("2") do |config|
 
     config.cache.synced_folder_opts = {
       type: :nfs,
-      mount_options: ['rw', 'vers=4', 'udp']
+      mount_options: ['rw', 'vers=4', 'tcp', 'fsc']
+      # mount_options: ['rw', 'vers=4', 'udp']
+      # mount_options: ['rw', 'vers=4', 'udp', 'noatime', 'nodiratime', 'nocto', 'noacl']
     }
   end
 
