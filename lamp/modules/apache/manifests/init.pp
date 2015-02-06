@@ -1,9 +1,9 @@
 class apache {
 
 # install apache
-  package { "apache2":
+  package { ['apache2', 'apache2-prefork-dev']:
     ensure  => present,
-    require => Exec["apt-get update"],
+    require => Exec['apt-get update'],
   }
 
 # ensures that mode_rewrite is loaded and modifies the default configuration file
@@ -38,7 +38,8 @@ class apache {
     notify  => Service["apache2"],
   }
 
-# starts the apache2 service once the packages installed, and monitors changes to its configuration files and reloads if nesessary
+# starts the apache2 service once the packages installed, and monitors changes to its configuration files
+# and reloads if nesessary
   service { "apache2":
     ensure    => running,
     require   => Package["apache2"],

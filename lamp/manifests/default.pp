@@ -4,12 +4,16 @@ Exec {
 }
 
 include bootstrap
-include tools
 include apache
 include php
 include php::pear
 include php::pecl
 include php::xdebug
+include php::phpbrew
+#class {'php::phpbrew':
+#  version => '5.6.5',
+#}
 include mysql
+include tools
 include tools::phpmyadmin
 #include memcached
