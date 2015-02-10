@@ -3,7 +3,7 @@
   DocumentRoot /vagrant/webroot
   <Directory /vagrant/webroot>
     DirectoryIndex index.php index.html
-    Options Indexes FollowSymLinks
+    Options Indexes FollowSymLinks MultiViews
     AllowOverride All
 
     # 2.2 config
