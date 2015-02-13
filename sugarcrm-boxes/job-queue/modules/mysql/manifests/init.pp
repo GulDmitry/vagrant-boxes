@@ -55,7 +55,7 @@ class mysql {
   exec { "create sugarcrm db":
     command =>
       "/usr/bin/mysql -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS sugarcrm CHARACTER SET utf8 COLLATE utf8_general_ci;\"",
-    require => Service["mysql"],
+    require => Exec['set-mysql-password'],
   }
 
 }
