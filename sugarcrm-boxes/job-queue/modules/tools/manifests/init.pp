@@ -2,7 +2,6 @@ class tools {
 
 # package install list
   $packages = [
-    'curl',
     'vim',
     'htop',
     'mc'

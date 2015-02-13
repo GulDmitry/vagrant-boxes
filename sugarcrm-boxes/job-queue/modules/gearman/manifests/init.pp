@@ -8,7 +8,9 @@ class gearman {
 
   package { $packages:
     ensure  => present,
-    require => Exec['add-gearman-ppa']
+# For ubuntu less 14.
+#    require => Exec['add-gearman-ppa']
+    require => Exec['apt-get update']
   }
 
   service { 'gearman-job-server':
@@ -17,10 +19,12 @@ class gearman {
     require => Package['gearman-job-server'],
   }
 
-  exec { 'add-gearman-ppa':
-    command => 'add-apt-repository ppa:gearman-developers/ppa',
-    notify  => Exec['apt-get update'],
-  }
+# For ubuntu less 14.
+#  exec { 'add-gearman-ppa':
+#    command => 'add-apt-repository ppa:gearman-developers/ppa',
+#    require => Package['software-properties-common', 'python-software-properties'],
+#    notify  => Exec['apt-get update'],
+#  }
 
   exec { 'gearman-php-extension':
     command => 'sudo pecl install gearman',

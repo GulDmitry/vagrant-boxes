@@ -1,13 +1,14 @@
 ## Job-queue box for SugarCRM
 
 ## Box
-* Ubuntu 13.04 x32.
+* Ubuntu 14.
 
 ## Requirements
-* Apache 2.2
-* PHP 5.4
+* Apache 2.x (system)
+* PHP 5.x (system)
   * xDebug
-* MySQL 5.5
+* [Phpbrew](https://github.com/phpbrew/phpbrew)
+* MySQL 5.x
 * PHPMyAdmin
 * ElasticSearch 0.9.x
 
@@ -61,3 +62,7 @@ $sugar_config['sugar_queue']['queue'] = 'sugar';
 
 ```
 * Check the pcntl ext `php -r 'echo extension_loaded("pcntl") ? "yes\n" : "no\n";'`
+
+* PHP 5.3.29 is preinstalled. To enable it execute:
+  * phpbrew use|switch php-5.3.29
+  * sudo service apache2 restart
