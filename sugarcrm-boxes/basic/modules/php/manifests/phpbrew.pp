@@ -74,7 +74,7 @@ class php::phpbrew (
   # Command example: phpbrew install php-5.6.5 +default +mb +apxs2 -- --enable-maintainer-zts
   # The 'apxs2' requires the 'apache2-prefork-dev' package.
     exec { "install php-${version}":
-      command     => "/usr/bin/phpbrew install php-${version} +default +mb +apxs2",
+      command     => "/usr/bin/phpbrew install php-${version} +default +mysql +mb +apxs2",
       user        => $user,
       environment => ["HOME=${$home_dir}", "PHPBREW_ROOT=${$home_dir}/.phpbrew"],
       creates     => "${$home_dir}/.phpbrew/php/php-${version}/bin/php",
