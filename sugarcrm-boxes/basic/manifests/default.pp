@@ -10,11 +10,11 @@ include php
 include php::pear
 include php::pecl
 include php::xdebug
-#include php::phpbrew
+include php::phpbrew
 # Currently supported version.
-class {'php::phpbrew':
-  version => '5.3.29',
-}
+#class {'php::phpbrew':
+#  version => '5.3.29',
+#}
 include mysql
 include tools::phpmyadmin
 include elasticsearch::install
