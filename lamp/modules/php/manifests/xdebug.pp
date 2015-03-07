@@ -14,8 +14,10 @@ class php::xdebug {
     content => "
         zend_extension=xdebug.so
 
-        ; For debug in CLI run before script 'export XDEBUG_CONFIG='idekey=netbeans-xdebug''.
+        ; For debug in CLI run before script {export XDEBUG_CONFIG='idekey=netbeans-xdebug'}.
         ; PHP Storm IDE key is PHPSTORM
+        ; To run CLI debug via PHPStorm IDE setup a server (where host is private IP), match routes
+        ; and run {export PHP_IDE_CONFIG='serverName=vagrant'}
         ; For debug service (SOAP, REST) set cookie on client setCookie('XDEBUG_SESSION', 'netbeans-xdebug')
         ; then debug progect. Some times need restart apache and Netbeans.
 
