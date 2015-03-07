@@ -35,7 +35,7 @@ class php {
       post_max_size = 80M
       upload_max_filesize = 80M
       memory_limit = 800M
-      error_reporting = E_ALL
+      error_reporting = E_ALL & ~E_STRICT & ~E_DEPRECATED
       html_errors = On
       display_errors = On
       date.timezone = Europe/Minsk
