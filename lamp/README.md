@@ -11,8 +11,11 @@
 * PHPMyAdmin
 * Memcached (disabled)
 
-## Tips:
+## Tips
 * Install [pthreads](https://github.com/krakjoe/pthreads):
   * phpbrew install php-5.6.5 +default +mb +apxs2 -- --enable-maintainer-zts
   * phpbrew use|switch php-5.6.5
   * sudo service apache2 restart
+
+## TODO
+* Tune mysql: forward port, change bind-address to 0.0.0.0 to allow remote connections, and add a new user with grants.
