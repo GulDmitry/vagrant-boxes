@@ -8,8 +8,8 @@ class gearman {
 
   package { $packages:
     ensure  => present,
-# For ubuntu less 14.
-#    require => Exec['add-gearman-ppa']
+  # For ubuntu less 14.
+  #    require => Exec['add-gearman-ppa']
     require => Exec['apt-get update']
   }
 
@@ -42,6 +42,13 @@ class gearman {
   }
 
   file { '/etc/php5/apache2/conf.d/30-gearman.ini':
+    ensure  => link,
+    target  => '/etc/php5/mods-available/gearman.ini',
+    require => File['/etc/php5/mods-available/gearman.ini'],
+    notify  => Service['apache2'],
+  }
+
+  file { '/etc/php5/cli/conf.d/30-gearman.ini':
     ensure  => link,
     target  => '/etc/php5/mods-available/gearman.ini',
     require => File['/etc/php5/mods-available/gearman.ini'],
