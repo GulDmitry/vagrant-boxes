@@ -19,3 +19,6 @@
 
 ## TODO
 * Tune mysql: forward port, change bind-address to 0.0.0.0 to allow remote connections, and add a new user with grants.
+  * config.vm.network :forwarded_port, guest: 3306, host: 8811
+  * bind-address=0.0.0.0 in /etc/mysql/my.cnf
+  * GRANT ALL on ...
