@@ -25,9 +25,11 @@
  * (echo status ; sleep 0.1) | netcat 127.0.0.1 4730
  * sudo  gearmand --queue-type=MySQL --mysql-host=localhost --mysql-user=root --mysql-password=root --mysql-db=sugarcrm
    --mysql-port=3306 --mysql-table=gearman_01 --log-file=/var/log/gearmand.log
-* Rabbit service `sudo service rabbitmq-server`
-* Rabbit management plugin `http://server-name:15672`, a new admin user `admin - admin`
-* Clear rabbit queue `sudo rabbitmqctl stop_app; sudo rabbitmqctl reset; sudo rabbitmqctl start_app`
+* Rabbit
+ * Rabbit service `sudo service rabbitmq-server`
+ * Rabbit management plugin `http://server-name:15672`, a new admin user `admin - admin`
+ * For remote connection to Rabbit, say from your php-script, use `admin - admin`
+ * Clear rabbit queue `sudo rabbitmqctl stop_app; sudo rabbitmqctl reset; sudo rabbitmqctl start_app`
 * Sugar config:
 ```
 $sugar_config['sugar_queue']['manager'] = 'standard';
