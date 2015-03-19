@@ -32,37 +32,33 @@
  * Clear rabbit queue `sudo rabbitmqctl stop_app; sudo rabbitmqctl reset; sudo rabbitmqctl start_app`
 * Sugar config:
 ```
-$sugar_config['sugar_queue']['manager'] = 'standard';
-//$sugar_config['sugar_queue']['manager'] = 'parallel';
-
 // Lock isn't used.
-//$sugar_config['sugar_queue']['mode']['od'] = true;
+$sugar_config['job_queue']['od'] = true;
+
+// $sugar_config['job_queue']['runner'] = 'standard';
+// $sugar_config['job_queue']['runner'] = 'parallel';
 
 // Sugar
-$sugar_config['sugar_queue']['queue'] = 'sugar';
+$sugar_config['job_queue']['adapter'] = 'Sugar';
 
 // Gearman
-//$sugar_config['sugar_queue']['queue'] = 'gearman';
-//$sugar_config['sugar_queue']['servers'] = '127.0.0.1:4730';
+//$sugar_config['job_queue']['adapter'] = 'Gearman';
+//$sugar_config['job_queue']['servers'] = '192.168.50.21';
 
 // AMQP
-//$sugar_config['sugar_queue']['queue'] = 'amqp';
-//$sugar_config['sugar_queue']['servers'] = 'localhost';
-//$sugar_config['sugar_queue']['login'] = 'guest';
-//$sugar_config['sugar_queue']['password'] = 'guest';
+//$sugar_config['job_queue']['adapter'] = 'AMQP';
+//$sugar_config['job_queue']['servers'] = '192.168.50.21';
+//$sugar_config['job_queue']['login'] = 'admin';
+//$sugar_config['job_queue']['password'] = 'admin';
 
 // SQS
-//$sugar_config['sugar_queue']['queue'] = 'sqs';
-//$sugar_config['sugar_queue']['key'] = '{key}';
-//$sugar_config['sugar_queue']['secret'] = '{secret}';
-//$sugar_config['sugar_queue']['region'] = 'eu-west-1';
-//$sugar_config['sugar_queue']['queueName'] = 'sugarjobqueue_dev';
+//$sugar_config['job_queue']['adapter'] = 'AmazonSQS';
+//$sugar_config['job_queue']['key'] = '{key}';
+//$sugar_config['job_queue']['secret'] = '{secret}';
+//$sugar_config['job_queue']['region'] = 'eu-west-1';
+//$sugar_config['job_queue']['queueName'] = 'sugarjobqueue_dev';
 
 // Queue executes tasks on add.
-//$sugar_config['sugar_queue']['queue'] = 'immediate';
-
-// Otherwise Sugar selects enabled backend according to priority.
-//$sugar_config['sugar_queue']['logger'] = 'ClassName';
-
+//$sugar_config['job_queue']['adapter'] = 'Immediate';
 ```
 * Check the pcntl ext `php -r 'echo extension_loaded("pcntl") ? "yes\n" : "no\n";'`
