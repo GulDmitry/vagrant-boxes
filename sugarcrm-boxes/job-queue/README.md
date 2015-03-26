@@ -32,30 +32,30 @@
  * Clear rabbit queue `sudo rabbitmqctl stop_app; sudo rabbitmqctl reset; sudo rabbitmqctl start_app`
 * Sugar config:
 ```
-// Lock disable. OD runner is used.
+// Lock disabled. OD runner is used.
 $sugar_config['job_queue']['od'] = true;
 
 // Select a runner
-// $sugar_config['job_queue']['runner'] = 'standard';
-// $sugar_config['job_queue']['runner'] = 'parallel';
+// $sugar_config['job_queue']['runner'] = 'Standard';
+// $sugar_config['job_queue']['runner'] = 'Parallel';
 
 // Select an adapter
 $sugar_config['job_queue']['adapter'] = 'Sugar';
 // Queue executes tasks on add.
 //$sugar_config['job_queue']['adapter'] = 'Immediate';
+//$sugar_config['job_queue']['adapter'] = 'Gearman';
+//$sugar_config['job_queue']['adapter'] = 'AMQP';
+//$sugar_config['job_queue']['adapter'] = 'Amazon_sqs';
 
 // Gearman Config
-//$sugar_config['job_queue']['gearman']['adapter'] = 'Gearman';
 //$sugar_config['job_queue']['gearman']['servers'] = '192.168.50.21';
 
 // AMQP Config
-//$sugar_config['job_queue']['amqp']['adapter'] = 'AMQP';
 //$sugar_config['job_queue']['amqp']['servers'] = '192.168.50.21';
 //$sugar_config['job_queue']['amqp']['login'] = 'admin';
 //$sugar_config['job_queue']['amqp']['password'] = 'admin';
 
 // SQS Config
-//$sugar_config['job_queue']['amazon_sqs']['adapter'] = 'AmazonSQS';
 //$sugar_config['job_queue']['amazon_sqs']['key'] = '{key}';
 //$sugar_config['job_queue']['amazon_sqs']['secret'] = '{secret}';
 //$sugar_config['job_queue']['amazon_sqs']['region'] = 'eu-west-1';
