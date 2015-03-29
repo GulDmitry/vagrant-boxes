@@ -1,0 +1,43 @@
+server {
+    listen 80;
+    server_name sugar-build;
+    root /var/www/sugar-build/ult/sugarcrm;
+    index index.php;
+
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+
+    location = /50x.html {
+	root /usr/share/nginx/www;
+    }
+
+
+# Sugarcrm conf
+location / {
+    if (!-d $request_filename){
+        set $rule_0 true; 
+    }
+    if (!-f $request_filename){
+        set $rule_0 true;
+    }
+    if ($rule_0){
+        rewrite ^/rest/(.*)$ /api/rest.php?__sugar_url=$1 last;
+        rewrite ^/cache/api/metadata/lang_(.._..)_(.*)_public(_ordered)?\.json$ /rest/v10/lang/public/$1?platform=$2 last;
+        rewrite ^/cache/api/metadata/lang_(.._..)_([^_]*)(_ordered)?\.json$ /rest/v10/lang/$1?platform=$2 last;
+        rewrite ^/portal/(.*)$ /portal2/$1 last;
+        rewrite ^/portal$ /portal/? permanent;
+    }
+ 
+    try_files $uri $uri/ index.php;
+}
+
+ # Sugarcrm end
+
+    location ~ \.php$ {
+	fastcgi_pass    unix:/var/run/php5-fpm.sock;
+	fastcgi_index   index.php;
+	fastcgi_param   SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	include         fastcgi_params;
+    }
+
+}
