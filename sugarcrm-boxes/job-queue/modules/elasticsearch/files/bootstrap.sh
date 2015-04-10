@@ -14,6 +14,8 @@ then
     sudo dpkg -i /tmp/elasticsearch.deb
     sudo service elasticsearch start
 
+    # ubuntu service autostart: sudo update-rc.d elasticsearch defaults
+
     # install plugins
     sudo /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
     sudo /usr/share/elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ
