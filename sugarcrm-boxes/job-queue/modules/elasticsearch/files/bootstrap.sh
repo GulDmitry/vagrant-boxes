@@ -16,7 +16,7 @@ then
 
     # ubuntu service autostart: sudo update-rc.d elasticsearch defaults
 
-    # install plugins
+    # install plugins: access http://host:9200/_plugin/head/
     sudo /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
     sudo /usr/share/elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ
 fi
